@@ -1,0 +1,8 @@
+<h1>Type: <%= @type.name.capitalize %></h1>
+ 
+<h2>Pokémon</h2>
+<ul>
+<% @pokemons.each do |pokemon| %>
+<li><%= link_to pokemon.name.capitalize, pokemon_path(pokemon) %></li>
+<% end %>
+</ul>

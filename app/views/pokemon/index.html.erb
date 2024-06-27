@@ -1,6 +1,18 @@
 <h1>Pokémon List</h1>
+ 
+<%= form_tag(search_pokemon_path, method: "get") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search by Pokémon name" %>
+<%= submit_tag "Search" %>
+<% end %>
+ 
 <ul>
-  <% @pokemons.each do |pokemon| %>
-    <li><%= link_to pokemon['name'], pokemon_show_path(pokemon['name']) %></li>
-  <% end %>
+<% if @pokemons.present? %>
+<% @pokemons.each do |pokemon| %>
+<li>
+<%= link_to pokemon['name'].capitalize, pokemon_path(pokemon['name']) %>
+</li>
+<% end %>
+<% else %>
+<li>No Pokémon found.</li>
+<% end %>
 </ul>

@@ -1,18 +1,30 @@
-<h1><%= @pokemon['name'].capitalize %></h1>
+<% if @pokemon.present? %>
+<h1><%= @pokemon['name'].capitalize if @pokemon['name'].present? %></h1>
 <p>Height: <%= @pokemon['height'] %></p>
 <p>Weight: <%= @pokemon['weight'] %></p>
 <p>Base experience: <%= @pokemon['base_experience'] %></p>
-
-<h2>Abilities</h2>
+ 
+  <h2>Abilities</h2>
 <ul>
-  <% @pokemon['abilities'].each do |ability| %>
-    <li><%= ability['ability']['name'] %></li>
-  <% end %>
+<% if @pokemon['abilities'].present? %>
+<% @pokemon['abilities'].each do |ability| %>
+<li><%= ability['ability']['name'] %></li>
+<% end %>
+<% else %>
+<li>No abilities found.</li>
+<% end %>
 </ul>
-
-<h2>Moves</h2>
+ 
+  <h2>Moves</h2>
 <ul>
-  <% @pokemon['moves'].each do |move| %>
-    <li><%= move['move']['name'] %></li>
-  <% end %>
+<% if @pokemon['moves'].present? %>
+<% @pokemon['moves'].each do |move| %>
+<li><%= move['move']['name'] %></li>
+<% end %>
+<% else %>
+<li>No moves found.</li>
+<% end %>
 </ul>
+<% else %>
+<p>Pokémon data not found.</p>
+<% end %>
