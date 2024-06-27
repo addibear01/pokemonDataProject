@@ -1,2 +1,18 @@
-<h1>Pokemon#show</h1>
-<p>Find me in app/views/pokemon/show.html.erb</p>
+<h1><%= @pokemon['name'].capitalize %></h1>
+<p>Height: <%= @pokemon['height'] %></p>
+<p>Weight: <%= @pokemon['weight'] %></p>
+<p>Base experience: <%= @pokemon['base_experience'] %></p>
+
+<h2>Abilities</h2>
+<ul>
+  <% @pokemon['abilities'].each do |ability| %>
+    <li><%= ability['ability']['name'] %></li>
+  <% end %>
+</ul>
+
+<h2>Moves</h2>
+<ul>
+  <% @pokemon['moves'].each do |move| %>
+    <li><%= move['move']['name'] %></li>
+  <% end %>
+</ul>
