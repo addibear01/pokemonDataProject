@@ -3,7 +3,10 @@ class Pokemon < ApplicationRecord
   has_many :types, through: :pokemon_types
   has_many :abilities, dependent: :destroy
   has_many :moves, dependent: :destroy
-  accepts_nested_attributes_for :abilities, :moves, :types
+  has_many :pokemon_items, dependent: :destroy
+  has_many :items, through: :pokemon_items
+
+  accepts_nested_attributes_for :abilities, :moves, :types, :items
 
   # Validations
   validates :name, presence: true, uniqueness: true

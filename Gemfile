@@ -68,3 +68,4 @@ end
 
 
 gem "httparty", "~> 0.22.0"
+gem 'will_paginate', '~> 3.3'

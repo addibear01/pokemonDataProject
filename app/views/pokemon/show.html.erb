@@ -1,30 +1,43 @@
-<% if @pokemon.present? %>
-<h1><%= @pokemon['name'].capitalize if @pokemon['name'].present? %></h1>
-<p>Height: <%= @pokemon['height'] %></p>
-<p>Weight: <%= @pokemon['weight'] %></p>
-<p>Base experience: <%= @pokemon['base_experience'] %></p>
- 
-  <h2>Abilities</h2>
-<ul>
-<% if @pokemon['abilities'].present? %>
-<% @pokemon['abilities'].each do |ability| %>
-<li><%= ability['ability']['name'] %></li>
-<% end %>
-<% else %>
-<li>No abilities found.</li>
-<% end %>
-</ul>
- 
-  <h2>Moves</h2>
-<ul>
-<% if @pokemon['moves'].present? %>
-<% @pokemon['moves'].each do |move| %>
-<li><%= move['move']['name'] %></li>
-<% end %>
-<% else %>
-<li>No moves found.</li>
-<% end %>
-</ul>
-<% else %>
-<p>Pokémon data not found.</p>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= @pokemon['name'].capitalize if @pokemon.present? %></title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-4">
+
+  <% if @pokemon.present? %>
+    <h1 class="text-4xl font-bold"><%= @pokemon['name'].capitalize %></h1>
+    <p class="mb-4">Height: <%= @pokemon['height'] %></p>
+    <p class="mb-4">Weight: <%= @pokemon['weight'] %></p>
+    <p class="mb-4">Base experience: <%= @pokemon['base_experience'] %></p>
+
+    <h2 class="text-2xl font-bold mt-8">Abilities</h2>
+    <ul class="list-disc pl-4 mb-4">
+      <% if @pokemon['abilities'].present? %>
+        <% @pokemon['abilities'].each do |ability| %>
+          <li><%= ability['ability']['name'] %></li>
+        <% end %>
+      <% else %>
+        <li>No abilities found.</li>
+      <% end %>
+    </ul>
+
+    <h2 class="text-2xl font-bold">Moves</h2>
+    <ul class="list-disc pl-4 mb-4">
+      <% if @pokemon['moves'].present? %>
+        <% @pokemon['moves'].each do |move| %>
+          <li><%= move['move']['name'] %></li>
+        <% end %>
+      <% else %>
+        <li>No moves found.</li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="text-xl">Pokémon data not found.</p>
+  <% end %>
+
+</body>
+</html>

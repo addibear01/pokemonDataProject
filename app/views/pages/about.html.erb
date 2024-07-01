@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-4">
+
+  <h1 class="text-4xl font-bold mb-4">About</h1>
+
+  <p class="mb-4">
+    The PokeAPI provides a RESTful API interface to access a variety of Pokémon-related data. <br>
+    API: <a href="https://pokeapi.co/" class="text-blue-500 hover:underline">https://pokeapi.co/</a>
+    <br><br>
+    <strong>Ability</strong><br>
+    Description: This dataset lists abilities that Pokémon can have, detailing their effects and which Pokémon can have them.<br>
+    Endpoint: /api/v2/ability/<br>
+    Structure: ability_id, name, effect <br><br>
+    <strong>Move</strong><br>
+    Description: This dataset includes information about moves that Pokémon can learn, including their type, power, and accuracy.<br>
+    Endpoint: /api/v2/move/<br>
+    Structure: move_id, name, power, accuracy <br><br>
+    <strong>Pokemon</strong><br>
+    Description: This dataset provides information on various Pokémon, including attributes like name, height, weight, base experience, and more.<br>
+    Endpoint: /api/v2/pokemon/<br>
+    Structure: id, name, height, weight, base_experience, move_id, ability_id <br><br>
+    <strong>Type</strong><br>
+    Description: This dataset categorizes Pokémon and moves into different types (e.g., Water, Fire, Grass), which have strengths and weaknesses against each other.<br>
+    Endpoint: /api/v2/type/<br>
+    Structure: type_id, name <br><br>
+    <strong>Pokemon Type (join)</strong><br>
+    Description: This join table connects Pokémon and Types.<br>
+    Endpoint: /api/v2/pokemon/<br>
+    Structure: id, type_id <br>
+    <strong>Item</strong><br>
+    Description: Includes items that Pokémon can hold or use in battles.<br>
+    Endpoint: /api/v2/items/<br>
+    Structure: item_id, name, effect <br><br>
+    <strong>Pokemon Item (join)</strong><br>
+    Description: This join table connects Pokémon and Items.<br>
+    Endpoint: /api/v2/pokemon/<br>
+    Structure: id, item_id
+  </p>
+  <strong>ERD Diagram:</strong><br>
+  <img src="/assets/ERD.drawio.png" class="my-8 mx-auto" alt="ERD Diagram">
+
+</body>
+</html>

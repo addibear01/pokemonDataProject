@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :pokemon, only: [:index, :show]
-  get 'pokemon/search', to: 'pokemon#search', as: 'search_pokemon'
   root 'pokemon#index'
+  get 'pages/map'
+  get 'pages/about'
+
+  get 'map', to: 'pages#map'
+  get 'about', to: 'pages#about'
+  resources :pokemons, only: [:index]
+  resources :pokemon, only: [:show]
+  get 'pokemon/search', to: 'pokemon#index', as: 'search_pokemon'
+
 end
